@@ -111,9 +111,9 @@
     .desktop-nav .button:hover, .desktop-nav .button:focus-visible { background: var(--dusty-blue); color: var(--navy-deep); border-color: var(--dusty-blue); }
     .desktop-nav a:not(.button)::after { content: ""; display: block; width: 0; height: 2px; margin-top: .25rem; background: var(--dusty-blue); transition: width .2s ease; }
     .desktop-nav a:hover::after, .desktop-nav a:focus-visible::after { width: 100%; }
-    .menu-toggle { display: none; width: 48px; height: 48px; border: 1px solid rgba(31,42,68,.35); border-radius: 50%; background: var(--white); color: var(--navy); }
-    .menu-toggle span, .menu-toggle::before, .menu-toggle::after { content: ""; display: block; width: 20px; height: 2px; margin: 4px auto; background: currentColor; transition: .2s ease; }
-    .mobile-panel { display: none; }
+    
+    
+    
 
     .hero { position: relative; display: grid; min-height: 100svh; place-items: center; overflow: hidden; color: var(--white); background: var(--navy-deep); }
     .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -200,11 +200,11 @@
 
     @media (max-width: 980px) {
       .desktop-nav { display: none; }
-      .menu-toggle { display: block; }
-      .mobile-panel { position: fixed; inset: 0; z-index: 90; display: flex; flex-direction: column; justify-content: center; padding: 6rem 2rem 2rem; background: var(--navy-deep); transform: translateX(100%); transition: transform .25s ease; }
-      .mobile-panel.open { transform: translateX(0); }
-      .mobile-panel nav { display: grid; gap: 1rem; }
-      .mobile-panel a { color: white; text-decoration: none; font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.7rem, 7vw, 2.7rem); }
+      
+      
+      
+      
+      
       .welcome-grid, .about-grid, .inclusive-panel { grid-template-columns: 1fr; }
       .approach-grid { grid-template-columns: repeat(2,1fr); }
       .inclusive-image { order: 2; }
@@ -257,17 +257,15 @@
 @media (max-width:980px){
   body.menu-open{overflow:hidden}
   .desktop-nav{display:none!important}
-  .menu-toggle{display:block!important;width:48px!important;height:48px!important;padding:0!important;border:1px solid rgba(31,42,68,.35)!important;border-radius:50%!important;background:#fff!important;color:#1F2A44!important;box-shadow:none!important}
-  .menu-toggle span,.menu-toggle::before,.menu-toggle::after{content:""!important;display:block!important;width:20px!important;height:2px!important;margin:4px auto!important;background:currentColor!important;border:0!important;transform:none!important;transition:none!important}
-  .mobile-panel{display:none!important;position:absolute!important;top:92px!important;left:0!important;right:0!important;z-index:999!important;padding:1rem!important;background:#fff!important;box-shadow:0 20px 35px rgba(17,26,45,.12)!important}
-  .mobile-panel.open{display:block!important}
-  .mobile-panel nav{display:grid!important;gap:0!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
-  .mobile-panel a{display:block!important;padding:.85rem!important;border:0!important;border-radius:0!important;background:transparent!important;color:#1F2A44!important;text-decoration:none!important;font-family:"Montserrat",Arial,sans-serif!important;font-size:1rem!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;text-align:left!important}
-  .mobile-panel a:hover,.mobile-panel a:focus-visible,.mobile-panel a[aria-current="page"]{background:#DCE0F0!important;color:#1F2A44!important}
+  
+  
+  
+  
+  
+  
+  
 }
-@media (max-width:640px){
-  .mobile-panel{top:80px!important}
-}
+
 </style>
 <script type="application/ld+json">
   {
@@ -284,27 +282,116 @@
     "knowsAbout": ["Wedding photography", "Wedding videography", "Documentary wedding photography", "Wedding films"]
   }
   </script>
+
+<style id="nimble-mobile-menu-clean">
+/* Single mobile menu implementation used across the whole website. */
+@media (max-width: 980px) {
+  .site-header { overflow: visible !important; }
+  .site-header .nav-wrap { position: relative !important; z-index: 1002 !important; }
+  .site-header .desktop-nav { display: none !important; }
+  .site-header .menu-toggle {
+    display: block !important;
+    position: relative !important;
+    width: 48px !important;
+    height: 48px !important;
+    flex: 0 0 48px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 1px solid rgba(31,42,68,.28) !important;
+    border-radius: 50% !important;
+    background: #fff !important;
+    color: #1F2A44 !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+    appearance: none !important;
+  }
+  .site-header .menu-toggle span,
+  .site-header .menu-toggle::before,
+  .site-header .menu-toggle::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 50% !important;
+    width: 20px !important;
+    height: 2px !important;
+    margin: 0 !important;
+    border: 0 !important;
+    background: currentColor !important;
+    transform: translateX(-50%) !important;
+    transition: transform .18s ease, opacity .18s ease !important;
+  }
+  .site-header .menu-toggle::before { top: 16px !important; }
+  .site-header .menu-toggle span { top: 23px !important; }
+  .site-header .menu-toggle::after { top: 30px !important; }
+  .site-header .menu-toggle[aria-expanded="true"]::before {
+    top: 23px !important;
+    transform: translateX(-50%) rotate(45deg) !important;
+  }
+  .site-header .menu-toggle[aria-expanded="true"] span { opacity: 0 !important; }
+  .site-header .menu-toggle[aria-expanded="true"]::after {
+    top: 23px !important;
+    transform: translateX(-50%) rotate(-45deg) !important;
+  }
+  .site-header .mobile-panel {
+    display: none !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 1rem 1rem 1.25rem !important;
+    overflow: visible !important;
+    z-index: 1001 !important;
+    background: #fff !important;
+    opacity: 1 !important;
+    transform: none !important;
+    box-shadow: 0 16px 28px rgba(17,26,45,.12) !important;
+    border: 0 !important;
+  }
+  .site-header .mobile-panel.open { display: block !important; }
+  .site-header .mobile-panel nav {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: .15rem !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .site-header .mobile-panel a {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: .85rem .8rem !important;
+    border: 0 !important;
+    border-radius: 10px !important;
+    background: transparent !important;
+    color: #1F2A44 !important;
+    text-decoration: none !important;
+    text-align: left !important;
+    font-family: "Montserrat", Arial, sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+  }
+  .site-header .mobile-panel a:hover,
+  .site-header .mobile-panel a:focus-visible { background: #EEF1F7 !important; }
+  .site-header .mobile-panel a[aria-current="page"] { background: #DCE0F0 !important; }
+}
+@media (min-width: 981px) {
+  .site-header .menu-toggle,
+  .site-header .mobile-panel { display: none !important; }
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<header aria-label="Main header" class="site-header">
-<div class="container nav-wrap">
-<a aria-label="Nimble home" class="brand" href="index.html">
-<img alt="Nimble" src="assets/images/nimble-logo-trimmed.png"/>
-</a>
-<nav aria-label="Primary navigation" class="desktop-nav">
-<a href="about.html">About</a>
-<a href="photography.html">Photography</a>
-<a href="videography.html">Videography</a>
-<a href="portfolio.html">Portfolio</a>
-<a href="journal.html">Journal</a>
-<a href="faqs.html">FAQs</a>
-<a class="button button-light" href="contact.html">Contact</a>
-</nav>
-<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button"><span></span></button>
-</div>
-<div aria-hidden="true" class="mobile-panel" id="mobile-menu"><nav aria-label="Mobile navigation"><a aria-current="page" href="index.html">Home</a><a href="about.html">About</a><a href="photography.html">Photography</a><a href="videography.html">Videography</a><a href="portfolio.html">Portfolio</a><a href="journal.html">Journal</a><a href="faqs.html">FAQs</a><a href="contact.html">Contact</a></nav></div></header>
-
+<header class="site-header"><div class="container nav-wrap"><a aria-current="page" aria-label="Nimble home" class="brand" href="index.html"><img alt="Nimble wedding photography and videography" src="assets/images/nimble-logo.png"/></a><nav aria-label="Primary navigation" class="desktop-nav"><a aria-current="page" href="index.html">Home</a><a href="about.html">About</a><a href="photography.html">Photography</a><a href="videography.html">Videography</a><a href="portfolio.html">Portfolio</a><a href="journal.html">Journal</a><a href="faqs.html">FAQs</a><a class="button button-primary" href="contact.html">Contact</a></nav><button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" type="button"><span></span></button></div><div aria-hidden="true" class="mobile-panel" id="mobile-menu"><nav aria-label="Mobile navigation"><a aria-current="page" href="index.html">Home</a><a href="about.html">About</a><a href="photography.html">Photography</a><a href="videography.html">Videography</a><a href="portfolio.html">Portfolio</a><a href="journal.html">Journal</a><a href="faqs.html">FAQs</a><a href="contact.html">Contact</a></nav></div></header>
 <main id="main-content">
 <section aria-labelledby="hero-title" class="hero">
 <video aria-hidden="true" autoplay="" class="hero-video" id="hero-video" loop="" muted="" playsinline="" poster="assets/images/hero-poster.jpg" preload="metadata">
@@ -456,46 +543,43 @@
 </section>
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-grid"><div><a aria-label="Nimble home" class="footer-logo" href="index.html"><img alt="Nimble" src="assets/images/nimble-logo.png"/></a><p>Relaxed wedding photography and videography across Norfolk, Suffolk and the UK.</p></div><div><h3>Explore</h3><div class="footer-links"><a href="about.html">About Ben</a><a href="photography.html">Photography</a><a href="videography.html">Videography</a><a href="portfolio.html">Portfolio</a></div></div><div><h3>Contact</h3><div class="footer-links"><a href="mailto:ben@nimblenorfolk.co.uk">ben@nimblenorfolk.co.uk</a><a href="tel:+447852350469">07852 350469</a><a href="contact.html">Make an enquiry</a></div></div></div><div class="footer-bottom"><span>© <span id="year"></span> Nimble.</span><span>Wedding photography and videography in Norfolk, Suffolk and beyond.</span></div></div></footer>
-<script>
-    const menuButton = document.querySelector('.menu-toggle');
-    const mobileMenu = document.querySelector('.mobile-panel');
-    const body = document.body;
 
-    function setMenu(open) {
-      menuButton.setAttribute('aria-expanded', String(open));
-      menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      mobileMenu.setAttribute('aria-hidden', String(!open));
-      mobileMenu.classList.toggle('open', open);
-      body.classList.toggle('menu-open', open);
-    }
+<script id="nimble-mobile-menu-clean-js">
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.site-header').forEach(function (header) {
+    const toggle = header.querySelector('.menu-toggle');
+    const panel = header.querySelector('.mobile-panel');
+    if (!toggle || !panel) return;
 
-    menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
-    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
-    document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
+    const closeMenu = function () {
+      panel.classList.remove('open');
+      panel.setAttribute('aria-hidden', 'true');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+    };
 
-    const heroVideo = document.getElementById('hero-video');
-    const videoToggle = document.getElementById('video-toggle');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-      heroVideo.pause();
-      videoToggle.innerHTML = '<span aria-hidden="true">▶</span> Play video';
-      videoToggle.setAttribute('aria-pressed', 'true');
-    }
-
-    videoToggle.addEventListener('click', () => {
-      if (heroVideo.paused) {
-        heroVideo.play();
-        videoToggle.innerHTML = '<span aria-hidden="true">❚❚</span> Pause video';
-        videoToggle.setAttribute('aria-pressed', 'false');
+    toggle.addEventListener('click', function (event) {
+      event.preventDefault();
+      const opening = !panel.classList.contains('open');
+      if (opening) {
+        panel.classList.add('open');
+        panel.setAttribute('aria-hidden', 'false');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-label', 'Close menu');
       } else {
-        heroVideo.pause();
-        videoToggle.innerHTML = '<span aria-hidden="true">▶</span> Play video';
-        videoToggle.setAttribute('aria-pressed', 'true');
+        closeMenu();
       }
     });
 
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    panel.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 980) closeMenu();
+    });
+  });
+});
+</script>
 </body>
 </html>
