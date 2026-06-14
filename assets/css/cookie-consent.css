@@ -1,0 +1,5 @@
+
+/* Nimble cookie consent */
+.cookie-banner{position:fixed;left:20px;right:20px;bottom:20px;z-index:9999;max-width:760px;margin:0 auto;background:#fff7e8;color:#1f2a44;border:1px solid rgba(31,42,68,.18);border-radius:18px;box-shadow:0 16px 48px rgba(31,42,68,.24);padding:22px;display:none}
+.cookie-banner.is-visible{display:block}.cookie-banner h2{font-family:"Playfair Display",Georgia,serif;margin:0 0 8px;font-size:1.5rem}.cookie-banner p{margin:0 0 16px;line-height:1.55}.cookie-actions{display:flex;flex-wrap:wrap;gap:10px}.cookie-btn{border:1px solid #1f2a44;border-radius:999px;padding:11px 18px;font:600 .95rem Montserrat,Arial,sans-serif;cursor:pointer}.cookie-btn.accept{background:#1f2a44;color:#fff}.cookie-btn.reject{background:transparent;color:#1f2a44}.cookie-link{color:#1f2a44;text-decoration:underline;text-underline-offset:3px}.cookie-settings-link{background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font:inherit}.cookie-status{margin-top:12px;font-size:.88rem}
+@media(max-width:600px){.cookie-banner{left:12px;right:12px;bottom:12px;padding:18px}.cookie-actions{flex-direction:column}.cookie-btn{width:100%}}
