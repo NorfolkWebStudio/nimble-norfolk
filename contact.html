@@ -172,6 +172,37 @@
   .site-header .mobile-panel { display: none !important; }
 }
 </style>
+
+<style id="nimble-live-enquiry-style">
+.nimble-enquiry-embed{margin-top:1.5rem}
+.nimble-enquiry-form{width:100%;margin:0;padding:0;border:0;background:transparent;color:var(--ink);font-family:"Montserrat",Arial,sans-serif}
+.nimble-enquiry-form *{box-sizing:border-box}
+.nimble-enquiry-form__intro{margin:0 0 1.5rem;color:var(--muted);font-size:1rem;line-height:1.65}
+.nimble-enquiry-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.15rem}
+.nimble-enquiry-field{display:grid;gap:.45rem}
+.nimble-enquiry-field--full{grid-column:1/-1}
+.nimble-enquiry-field label{font-size:.95rem;font-weight:700;color:var(--navy)}
+.nimble-enquiry-field .optional{font-weight:500;color:var(--muted)}
+.nimble-enquiry-field input,.nimble-enquiry-field select,.nimble-enquiry-field textarea{width:100%;min-height:52px;padding:.78rem .9rem;border:1px solid #b8c1d0;border-radius:14px;background:#fff;color:var(--ink);font:inherit;font-size:1rem;line-height:1.4;box-shadow:none}
+.nimble-enquiry-field textarea{min-height:150px;resize:vertical}
+.nimble-enquiry-field input:focus,.nimble-enquiry-field select:focus,.nimble-enquiry-field textarea:focus{outline:3px solid rgba(143,168,196,.34);outline-offset:2px;border-color:var(--navy)}
+.nimble-enquiry-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.35rem}
+.nimble-enquiry-submit{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:.85rem 1.45rem;border:2px solid var(--navy);border-radius:999px;background:var(--navy);color:#fff;font:inherit;font-size:.9rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:.2s ease}
+.nimble-enquiry-submit:hover,.nimble-enquiry-submit:focus-visible{background:var(--dusty-blue);border-color:var(--dusty-blue);color:var(--navy-deep);transform:translateY(-1px)}
+.nimble-enquiry-submit:disabled{opacity:.65;cursor:wait;transform:none}
+.nimble-enquiry-note{margin:0;color:var(--muted);font-size:.92rem;line-height:1.5}
+.nimble-enquiry-status{display:none;margin-top:1rem;padding:1rem 1.1rem;border-radius:14px;font-size:.98rem;line-height:1.55}
+.nimble-enquiry-status.is-visible{display:block}
+.nimble-enquiry-status.is-success{background:#edf6ee;color:#1d4d2b}
+.nimble-enquiry-status.is-error{background:#fff0ee;color:#7a241c}
+.nimble-enquiry-hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
+.nimble-enquiry-success{padding:clamp(1.25rem,3vw,2rem);border-radius:20px;background:var(--lilac);color:var(--navy)}
+.nimble-enquiry-success h3{margin:0 0 .65rem;font-family:"Playfair Display",Georgia,serif;color:var(--navy);font-size:clamp(1.6rem,3vw,2.2rem)}
+.nimble-enquiry-success p{margin:0;color:#354054;line-height:1.65}
+@media(max-width:720px){.nimble-enquiry-grid{grid-template-columns:1fr}.nimble-enquiry-field--full{grid-column:auto}.nimble-enquiry-actions{align-items:stretch;flex-direction:column}.nimble-enquiry-submit{width:100%}}
+@media(max-width:480px){.nimble-enquiry-field textarea{min-height:130px}}
+@media(prefers-reduced-motion:reduce){.nimble-enquiry-submit{transition:none}}
+</style>
 <link href="assets/css/cookie-consent.css" rel="stylesheet"/></head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -180,7 +211,62 @@
 <section class="hero"><img alt="Camera and iced drink on a sunlit café table outdoors" src="assets/images/contact-hero.jpg"/><div class="hero-content"><div class="hero-copy"><p class="eyebrow">Tell me about your day</p><h1>Let’s talk weddings</h1><p>Share the date, venue and the kind of day you are planning. Whether you are looking for photography, videography or are still deciding, you can keep it relaxed and ask anything you need to.</p></div></div></section>
 <section class="section"><div class="container contact-layout">
 <aside class="contact-card"><p class="eyebrow">Contact Ben</p><h2>Easy, friendly and no pressure</h2><p>Email is the best way to get in touch because it keeps dates, timings and ideas together in one place. Consultations usually happen on Zoom, with in-person chats available when travelling works for everyone.</p><div class="contact-list"><div class="contact-item"><strong>Email</strong><a href="mailto:ben@nimblenorfolk.co.uk">ben@nimblenorfolk.co.uk</a></div><div class="contact-item"><strong>Phone</strong><a href="tel:+447852350469">07852 350469</a></div><div class="contact-item"><strong>Coverage area</strong><span>Norfolk, Suffolk and weddings across the UK</span></div></div><div class="contact-note"><strong>Not sure what to ask?</strong><p>Just send the date, venue and a rough idea of what you are considering. You do not need to have everything planned before getting in touch.</p></div></aside>
-<section aria-labelledby="form-title" class="form-card"><p class="eyebrow">Wedding enquiry</p><h2 id="form-title">Tell me what you’re planning</h2><p>Use the secure Studio Ninja form below to share your date, venue and plans directly with me.</p><div class="studio-ninja-form-wrap"><iframe allowfullscreen="" height="945" id="sn-form-99jxi" src="https://app.studioninja.co/contactform/parser/0a800fc8-863a-163d-8186-7a5c0fc526c8/0a800fc8-9eb1-187c-819e-b8e53b7f4507" style="width:100%; max-width:600px; border:0; display:block; margin:0 auto;" title="Nimble wedding enquiry form"></iframe></div><script data-iframe-id="sn-form-99jxi" src="https://app.studioninja.co/client-assets/form-render/assets/scripts/iframeResizer.js" type="text/javascript"></script></section>
+<section aria-labelledby="form-title" class="form-card"><p class="eyebrow">Wedding enquiry</p><h2 id="form-title">Tell me what you’re planning</h2><p>Use the secure form below to share your date, venue and plans directly with me.</p>
+<div class="nimble-enquiry-embed" data-nimble-enquiry-form data-endpoint="https://portal.nimblenorfolk.co.uk/api/website-enquiry">
+  <form class="nimble-enquiry-form" novalidate>
+    <p class="nimble-enquiry-form__intro">Share what you know so far. You do not need to have every detail planned before getting in touch.</p>
+    <div class="nimble-enquiry-grid">
+      <div class="nimble-enquiry-field"><label for="nimble-name">Your name or names</label><input id="nimble-name" name="name" type="text" autocomplete="name" maxlength="180" required></div>
+      <div class="nimble-enquiry-field"><label for="nimble-email">Email address</label><input id="nimble-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+      <div class="nimble-enquiry-field"><label for="nimble-phone">Telephone <span class="optional">(optional)</span></label><input id="nimble-phone" name="telephone" type="tel" autocomplete="tel" maxlength="80"></div>
+      <div class="nimble-enquiry-field"><label for="nimble-date">Wedding date <span class="optional">(if known)</span></label><input id="nimble-date" name="proposed_date" type="date"></div>
+      <div class="nimble-enquiry-field nimble-enquiry-field--full"><label for="nimble-location">Venue or location <span class="optional">(if known)</span></label><input id="nimble-location" name="location" type="text" maxlength="300"></div>
+      <div class="nimble-enquiry-field nimble-enquiry-field--full"><label for="nimble-service">What are you interested in?</label><select id="nimble-service" name="work_type" required><option value="">Choose…</option><option>Wedding Photography</option><option>Wedding Videography</option><option value="Other">Not sure yet</option></select></div>
+      <div class="nimble-enquiry-field nimble-enquiry-field--full"><label for="nimble-message">Tell me about your plans <span class="optional">(optional)</span></label><textarea id="nimble-message" name="message" maxlength="5000"></textarea></div>
+      <div class="nimble-enquiry-hp" aria-hidden="true"><label for="nimble-company">Company website</label><input id="nimble-company" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
+    </div>
+    <div class="nimble-enquiry-actions"><button class="nimble-enquiry-submit" type="submit">Send your enquiry</button><p class="nimble-enquiry-note">No hard sell, no pressure. I’ll reply by email.</p></div>
+    <div class="nimble-enquiry-status" data-nimble-status></div>
+  </form>
+</div>
+<script id="nimble-live-enquiry-js">
+(()=>{
+  const root=document.querySelector('[data-nimble-enquiry-form]');
+  if(!root)return;
+  const form=root.querySelector('form');
+  const status=root.querySelector('[data-nimble-status]');
+  const button=root.querySelector('button[type="submit"]');
+  const endpoint=root.dataset.endpoint;
+  const storageKey='nimbleWebsiteEnquirySubmissionId';
+  const formStartedAt=Date.now();
+  const makeId=()=>window.crypto?.randomUUID?crypto.randomUUID():`web-${Date.now()}-${Math.random().toString(36).slice(2,12)}`;
+  const getId=()=>{let id='';try{id=sessionStorage.getItem(storageKey)||''}catch{}if(!id){id=makeId();try{sessionStorage.setItem(storageKey,id)}catch{}}return id};
+  const setStatus=(message,type)=>{status.textContent=message;status.className=`nimble-enquiry-status is-visible ${type==='success'?'is-success':'is-error'}`;status.setAttribute('role',type==='success'?'status':'alert')};
+  form.addEventListener('submit',async event=>{
+    event.preventDefault();
+    status.className='nimble-enquiry-status';
+    if(!form.reportValidity())return;
+    button.disabled=true;
+    const original=button.textContent;
+    button.textContent='Sending…';
+    const data=Object.fromEntries(new FormData(form).entries());
+    data.submission_id=getId();
+    data.form_started_at=String(formStartedAt);
+    try{
+      const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+      let result={};
+      try{result=await response.json()}catch{}
+      if(!response.ok)throw new Error(result.error||'I could not send your enquiry. Please try again.');
+      root.innerHTML='<div class="nimble-enquiry-success" role="status"><h3>Thanks — your enquiry is with me.</h3><p>I’ll take a look at your plans and get back to you by email. You do not need to submit the form again.</p></div>';
+      try{sessionStorage.removeItem(storageKey)}catch{}
+    }catch(error){
+      setStatus(error.message||'I could not send your enquiry. Please try again.','error');
+      button.disabled=false;
+      button.textContent=original;
+    }
+  });
+})();
+</script></section>
 </div></section>
 <section class="section steps"><div class="container"><div class="section-intro"><p class="eyebrow">What happens next?</p><h2>Simple from the first message</h2><p>No hard sell, no pressure and no need to have every detail decided.</p></div><div class="steps-grid"><article class="step-card"><div class="step-number">1</div><h3>Send your plans</h3><p>Share your date, venue and whether you are considering photography, videography or both as separate options.</p></article><article class="step-card"><div class="step-number">2</div><h3>Have a relaxed chat</h3><p>I’ll talk through the day, answer questions and help you work out which service or package fits best.</p></article><article class="step-card"><div class="step-number">3</div><h3>Secure the date</h3><p>Once everything feels right, a 50% non-refundable booking payment secures the wedding date.</p></article></div></div></section>
 <section class="section cta"><div class="container cta-wrap"><div class="cta-copy"><p class="eyebrow">Prefer to email directly?</p><h2>That works perfectly too</h2><p>Send a straightforward message with your date and venue. I can take it from there.</p></div><a class="button button-light" href="mailto:ben@nimblenorfolk.co.uk?subject=Wedding%20enquiry%20for%20Nimble">Email Ben</a></div></section>
