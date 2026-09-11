@@ -210,7 +210,7 @@
 <main id="main-content">
 <section class="hero"><img alt="Camera and iced drink on a sunlit café table outdoors" src="assets/images/contact-hero.jpg"/><div class="hero-content"><div class="hero-copy"><p class="eyebrow">Tell me about your day</p><h1>Let’s talk weddings</h1><p>Share the date, venue and the kind of day you are planning. Whether you are looking for photography, videography or are still deciding, you can keep it relaxed and ask anything you need to.</p></div></div></section>
 <section class="section"><div class="container contact-layout">
-<aside class="contact-card"><p class="eyebrow">Contact Ben</p><h2>Easy, friendly and no pressure</h2><p>Email is the best way to get in touch because it keeps dates, timings and ideas together in one place. Discovery chats usually happen online, with in-person chats available when travelling works for everyone.</p><div class="contact-list"><div class="contact-item"><strong>Email</strong><a href="mailto:ben@nimblenorfolk.co.uk">ben@nimblenorfolk.co.uk</a></div><div class="contact-item"><strong>Phone</strong><a href="tel:+447852350469">07852 350469</a></div><div class="contact-item"><strong>Coverage area</strong><span>Norfolk, Suffolk and weddings across the UK</span></div></div><div class="contact-note"><strong>Not sure what to ask?</strong><p>Just send the date, venue and a rough idea of what you are considering. You do not need to have everything planned before getting in touch.</p></div></aside>
+<aside class="contact-card"><p class="eyebrow">Contact Ben</p><h2>Easy, friendly and no pressure</h2><p>Email is the best way to get in touch because it keeps dates, timings and ideas together in one place. Consultations usually happen on Zoom, with in-person chats available when travelling works for everyone.</p><div class="contact-list"><div class="contact-item"><strong>Email</strong><a href="mailto:ben@nimblenorfolk.co.uk">ben@nimblenorfolk.co.uk</a></div><div class="contact-item"><strong>Phone</strong><a href="tel:+447852350469">07852 350469</a></div><div class="contact-item"><strong>Coverage area</strong><span>Norfolk, Suffolk and weddings across the UK</span></div></div><div class="contact-note"><strong>Not sure what to ask?</strong><p>Just send the date, venue and a rough idea of what you are considering. You do not need to have everything planned before getting in touch.</p></div></aside>
 <section aria-labelledby="form-title" class="form-card"><p class="eyebrow">Wedding enquiry</p><h2 id="form-title">Tell me what you’re planning</h2><p>Use the secure form below to share your date, venue and plans directly with me.</p>
 <div class="nimble-enquiry-embed" data-nimble-enquiry-form data-endpoint="https://portal.nimblenorfolk.co.uk/api/website-enquiry">
   <form class="nimble-enquiry-form" novalidate>
@@ -222,6 +222,7 @@
       <div class="nimble-enquiry-field"><label for="nimble-date">Wedding date <span class="optional">(if known)</span></label><input id="nimble-date" name="proposed_date" type="date"></div>
       <div class="nimble-enquiry-field nimble-enquiry-field--full"><label for="nimble-location">Venue or location <span class="optional">(if known)</span></label><input id="nimble-location" name="location" type="text" maxlength="300"></div>
       <div class="nimble-enquiry-field nimble-enquiry-field--full"><label for="nimble-service">What are you interested in?</label><select id="nimble-service" name="work_type" required><option value="">Choose…</option><option>Wedding Photography</option><option>Wedding Videography</option><option value="Other">Not sure yet</option></select></div>
+      <div class="nimble-enquiry-field nimble-enquiry-field--full"><label for="nimble-lead-source">Where did you find us?</label><select id="nimble-lead-source" name="lead_source" required><option value="">Choose…</option><option>Facebook page</option><option>Facebook group</option><option>Instagram</option><option>TikTok</option><option>LinkedIn</option><option>Pinterest</option><option>YouTube</option><option>Google Business Profile</option><option>Google / search</option><option>Recommendation</option><option>Previous client</option><option>Journal / blog</option><option>Other</option></select></div>
       <div class="nimble-enquiry-field nimble-enquiry-field--full"><label for="nimble-message">Tell me about your plans <span class="optional">(optional)</span></label><textarea id="nimble-message" name="message" maxlength="5000"></textarea></div>
       <div class="nimble-enquiry-hp" aria-hidden="true"><label for="nimble-company">Company website</label><input id="nimble-company" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
     </div>
@@ -237,6 +238,8 @@
   const status=root.querySelector('[data-nimble-status]');
   const button=root.querySelector('button[type="submit"]');
   const endpoint=root.dataset.endpoint;
+  const qs=new URLSearchParams(location.search);
+  const tracking={marketing_tracking_code:qs.get('nimble_post')||'',marketing_utm_source:qs.get('utm_source')||'',marketing_utm_campaign:qs.get('utm_campaign')||'',marketing_utm_content:qs.get('utm_content')||''};
   const storageKey='nimbleWebsiteEnquirySubmissionId';
   const formStartedAt=Date.now();
   const makeId=()=>window.crypto?.randomUUID?crypto.randomUUID():`web-${Date.now()}-${Math.random().toString(36).slice(2,12)}`;
@@ -250,6 +253,7 @@
     const original=button.textContent;
     button.textContent='Sending…';
     const data=Object.fromEntries(new FormData(form).entries());
+    Object.assign(data,tracking);
     data.submission_id=getId();
     data.form_started_at=String(formStartedAt);
     try{
